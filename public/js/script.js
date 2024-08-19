@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const otherExpensesList = document.getElementById("other-expenses-list");
   const mealsTotalAmount = document.getElementById("meals-total-amount");
   const otherTotalAmount = document.getElementById("other-total-amount");
-  const apiUrl = "http://localhost:8209/expenses";
+  const apiUrl = "https://expense-tracker-z0m9.onrender.com/expenses";
   const submitExpense = document.getElementById("submit_expense");
   const defaultUsername = "admin";
   const defaultPassword = "admin";
@@ -78,7 +78,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   async function addExpense(expense) {
-    console.log("vao add...");
     await fetch(apiUrl, {
       method: "POST",
       headers: {
@@ -88,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function () {
     })
       .then((response) => {
         response.json();
-        console.log("response ", response);
       })
       .then(() => loadExpenses());
   }
@@ -104,7 +102,6 @@ document.addEventListener("DOMContentLoaded", function () {
     ).map((cb) => cb.value);
 
     const expense = { item, spender, amount, date, members };
-    console.log("expense ", expense);
     await addExpense(expense);
     mealsForm.reset();
   });
