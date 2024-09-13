@@ -36,4 +36,4 @@ jobs:
         with:
           project: "expense-tracker-deno"
           entrypoint: "server/app.js"
-          root: "/"
+          root: ""
